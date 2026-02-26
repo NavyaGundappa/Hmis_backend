@@ -37,8 +37,9 @@ mongoose.connect(MONGO_URI)
     .then(() => {
         console.log('✅ MongoDB connected successfully');
         // Start server only after DB is connected
-        app.listen(PORT, () => {
-            console.log(`🚀 Server running on http://192.168.50.105:${PORT}`);
+        app.listen(PORT, '0.0.0.0', () => {
+            console.log(`🚀 HMIS Server running on port ${PORT}`);
+            console.log(`📡 API available at /hmis/...`);
         });
     })
     .catch(err => console.error('❌ MongoDB connection error:', err));
